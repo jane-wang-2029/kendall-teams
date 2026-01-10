@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>US Market Exploration Program for International Scale-ups | kTeams</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: #2c3e50;
+      background-color: #ffffff;
+    }
+    header {
+      background: linear-gradient(135deg, #1f3b5d 0%, #2c5282 100%);
+      color: white;
+      padding: 2rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transform: translateY(0);
+      opacity: 1;
+      transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    }
+    header.hidden {
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+    nav {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    nav a {
+      color: #d3e3ff;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background 0.2s, color 0.2s;
+      font-size: 0.9rem;
+    }
+    nav a:hover {
+      background: rgba(255,255,255,0.2);
+      color: white;
+    }
+    .hero {
+      text-align: center;
+      padding: 3rem 2rem;
+      padding-top: 200px;
+      background: linear-gradient(135deg, #e8f4f8 0%, #f8f9fa 100%);
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      color: #1f3b5d;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+    .cta-button {
+      display: inline-block;
+      margin-top: 2rem;
+      background: #2c5282;
+      color: white;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .cta-button:hover {
+      background: #1f3b5d;
+      transform: translateY(-2px);
+    }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    section {
+      margin-bottom: 4rem;
+      scroll-margin-top: 200px;
+    }
+    h2 {
+      color: #1f3b5d;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid #2c5282;
+    }
+    h3 {
+      color: #2c5282;
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      margin-bottom: 1rem;
+      color: #555;
+    }
+    ul {
+      margin-left: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    li {
+      margin-bottom: 0.75rem;
+      color: #555;
+    }
+    .highlight-box {
+      background: #e8f4f8;
+      border-left: 4px solid #2c5282;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+    .contact-box {
+      background: #f8f9fa;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+    .organizers-list {
+      list-style: none;
+      margin-left: 0;
+    }
+    .organizers-list li {
+      padding: 0.75rem;
+      background: #f8f9fa;
+      margin-bottom: 0.5rem;
+      border-radius: 4px;
+      border-left: 3px solid #2c5282;
+    }
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav a {
+        width: 100%;
+        text-align: center;
+      }
+      main {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 style="text-align: center; font-size: 1.8rem; margin-bottom: 0;">kTeams</h1>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#what-offers">What kTeams Offers</a>
+      <a href="#why">Why kTeams?</a>
+      <a href="#not-bootcamp">Not a Boot Camp</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#why-boston">Why Boston</a>
+      <a href="#program">kTeams Program</a>
+      <a href="#structure">Program Structure</a>
+      <a href="#extended">Extended Programs</a>
+      <a href="#sample">Sample Program</a>
+      <a href="#apply">How to Apply</a>
+      <a href="#process">Application Process</a>
+      <a href="#profile">Team Profile</a>
+      <a href="#organizers">Organizers</a>
+      <a href="#history">History</a>
+      <a href="#contact">Get in Touch</a>
+    </nav>
+  </header>
+
+  <div class="hero" id="hero">
+    <h1>US Market Exploration Program for International Scale-ups</h1>
+    <p>A 2-week hands-on program in Boston's innovation ecosystem</p>
+    <a href="#apply" class="cta-button">Apply Now</a>
+  </div>
+
+  <main>
+    <section id="what-offers">
+      <h2>What kTeams Offers</h2>
+      <p>
+        kTeams is a 2-week hands-on US-market exploration program designed for international scale-ups. 
+        The program welcomes teams from universities, incubators, and economic development organizations. 
+        Individual entrepreneurs may also apply.
+      </p>
+      <p>
+        Participants engage directly with the Boston innovation ecosystem through structured activities, 
+        introductions, and immersive experiences designed to accelerate market entry and strategic positioning.
+      </p>
+    </section>
+
+    <section id="why">
+      <h2>Why kTeams?</h2>
+      <div class="highlight-box">
+        <h3>Key Benefits</h3>
+        <ul>
+          <li><strong>Optimize Market Positioning:</strong> Refine your value proposition and market positioning strategies</li>
+          <li><strong>Perfect Your Pitch:</strong> Develop and practice investor-ready presentations</li>
+          <li><strong>Strategic Introductions:</strong> Connect with investors, partners, and potential customers in the Boston ecosystem</li>
+          <li><strong>Ecosystem Access:</strong> Gain direct access to Kendall Square innovation community and CIC facilities</li>
+          <li><strong>Network Building:</strong> Build relationships with mentors, speakers, and fellow entrepreneurs</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="not-bootcamp">
+      <h2>kTeams is not a Boot Camp</h2>
+      <p>
+        Unlike traditional boot camps, kTeams focuses on high-touch, personalized market exploration rather than 
+        standardized curriculum. The program is designed as a "contact sport" where teams engage directly with 
+        the ecosystem, building real relationships and gaining practical insights tailored to their specific 
+        market entry challenges.
+      </p>
+      <p>
+        The curriculum emphasizes hands-on experience, strategic introductions, and personalized mentorship 
+        rather than classroom-based instruction. Each team receives customized guidance based on their industry, 
+        stage, and market goals.
+      </p>
+    </section>
+
+    <section id="testimonials">
+      <h2>Testimonials</h2>
+      <p>Hear from past participants about their kTeams experience.</p>
+    </section>
+
+    <section id="why-boston">
+      <h2>Why Boston</h2>
+      <p>
+        Boston, particularly Kendall Square, represents one of the world's most concentrated innovation ecosystems. 
+        The region offers unparalleled access to:
+      </p>
+      <ul>
+        <li>Leading research universities (MIT, Harvard, and others)</li>
+        <li>World-class hospitals and research institutions</li>
+        <li>Venture capital firms and angel investors</li>
+        <li>Life sciences, biotech, and technology clusters</li>
+        <li>Corporate innovation labs and strategic partners</li>
+        <li>A supportive startup community and accelerator programs</li>
+      </ul>
+      <p>
+        kTeams leverages this ecosystem through strategic partnerships, including cooperation with CIC 
+        (Cambridge Innovation Center), providing participants with workspace, meeting facilities, and 
+        direct access to the Kendall Square innovation community during their stay.
+      </p>
+    </section>
+
+    <section id="program">
+      <h2>kTeams Program</h2>
+      <p>
+        The kTeams program is an intensive 2-week experience designed to help international scale-ups 
+        understand, navigate, and engage with the US market. The program combines structured learning 
+        sessions, networking events, strategic introductions, and hands-on market exploration activities.
+      </p>
+      <p>
+        Throughout the program, teams work directly with experienced mentors and advisors to refine their 
+        market strategy, develop investor materials, and build relationships with key stakeholders in their 
+        target market.
+      </p>
+    </section>
+
+    <section id="structure">
+      <h2>kTeams Program Structure</h2>
+      <p>The 2-week program is structured around several key components:</p>
+      <ul>
+        <li><strong>Orientation & Ecosystem Overview:</strong> Introduction to Boston innovation ecosystem and program expectations</li>
+        <li><strong>Market Positioning Workshops:</strong> Sessions focused on refining value proposition and market strategy</li>
+        <li><strong>Pitch Development:</strong> Guided development and practice of investor presentations</li>
+        <li><strong>Strategic Introductions:</strong> Curated meetings with investors, partners, and potential customers</li>
+        <li><strong>Site Visits:</strong> Tours of relevant companies, labs, and institutions</li>
+        <li><strong>Networking Events:</strong> Opportunities to connect with entrepreneurs, mentors, and ecosystem players</li>
+        <li><strong>Individual Consultations:</strong> One-on-one sessions with mentors and advisors</li>
+        <li><strong>Program Wrap-up:</strong> Final presentations and action plan development</li>
+      </ul>
+    </section>
+
+    <section id="extended">
+      <h2>kTeams Extended Programs</h2>
+      <p>
+        In addition to the standard 2-week program, kTeams may offer extended program options tailored 
+        to specific needs of participants or partner organizations. These extended programs provide 
+        additional time for deeper market exploration, relationship building, and strategic development.
+      </p>
+      <p>
+        For information about extended program options and availability, please contact the organizers.
+      </p>
+    </section>
+
+    <section id="sample">
+      <h2>Sample kTeams Program</h2>
+      <p>A typical kTeams program schedule includes:</p>
+      <div class="highlight-box">
+        <h3>Week 1</h3>
+        <ul>
+          <li>Program orientation and ecosystem overview</li>
+          <li>Market positioning and value proposition workshops</li>
+          <li>Initial investor and partner introductions</li>
+          <li>Site visits to relevant companies and institutions</li>
+          <li>Networking events and community engagement</li>
+        </ul>
+        <h3>Week 2</h3>
+        <ul>
+          <li>Pitch development and refinement sessions</li>
+          <li>Strategic investor and customer meetings</li>
+          <li>Continued ecosystem exploration and networking</li>
+          <li>Individual mentor consultations</li>
+          <li>Final presentations and action plan development</li>
+        </ul>
+      </div>
+      <p>
+        Specific schedules are customized based on participant needs, industry focus, and program timing.
+      </p>
+    </section>
+
+    <section id="apply">
+      <h2>How to Apply</h2>
+      <p>
+        kTeams welcomes applications from international scale-ups, teams from universities and incubators, 
+        and economic development organizations. Individual entrepreneurs may also apply.
+      </p>
+      <p>
+        To begin the application process, please send an email inquiry to the organizers. The program 
+        operates on a rolling admission basis, and teams will receive confirmation or rejection within 
+        one week after submitting required materials.
+      </p>
+      <div class="highlight-box">
+        <p><strong>Initial Contact:</strong> Email organizers@kendall-teams.com</p>
+        <p><strong>Application Review:</strong> Confirmation or rejection within one week after materials received</p>
+        <p><strong>Remote Preparation:</strong> Accepted teams participate in a remote preparation program</p>
+      </div>
+    </section>
+
+    <section id="process">
+      <h2>Application Process</h2>
+      <ol style="margin-left: 2rem;">
+        <li><strong>Initial Inquiry:</strong> Send email to organizers@kendall-teams.com expressing interest</li>
+        <li><strong>Application Materials:</strong> Submit required application materials (registration form and other documents as specified)</li>
+        <li><strong>Review Period:</strong> Application materials are reviewed by the organizers</li>
+        <li><strong>Notification:</strong> Receive confirmation or rejection within one week after materials are received</li>
+        <li><strong>Remote Preparation:</strong> Accepted teams participate in remote preparation program before the on-site experience</li>
+        <li><strong>Registration & Fees:</strong> Complete registration form and payment of applicable fees</li>
+        <li><strong>Program Participation:</strong> Engage in the 2-week on-site program in Boston</li>
+      </ol>
+      <p>
+        <strong>Note:</strong> Sponsors are encouraged. Teams sponsored by universities, incubators, or 
+        economic development organizations may have different application processes or fee structures.
+      </p>
+    </section>
+
+    <section id="profile">
+      <h2>Typical Team Profile</h2>
+      <p>kTeams is designed for teams that meet the following criteria:</p>
+      <ul>
+        <li><strong>Company Stage:</strong> Incorporated for 4 years or less</li>
+        <li><strong>Funding:</strong> Have received $1 million USD or less in institutional funding</li>
+        <li><strong>Industry Focus:</strong> Preferably life sciences, though other high-technology sectors are welcome</li>
+        <li><strong>Team Initiative:</strong> Demonstrated initiative and commitment to market expansion</li>
+        <li><strong>Full Participation:</strong> Commitment to full participation including preparation activities</li>
+        <li><strong>Additional Assets:</strong> Having revenues, awards, or other validation is helpful but not required</li>
+      </ul>
+      <p>
+        Teams should be prepared for intensive engagement, active networking, and dedicated work on 
+        market positioning and strategic development throughout the program.
+      </p>
+    </section>
+
+    <section id="organizers">
+      <h2>Organizers</h2>
+      <p>The kTeams program is organized by:</p>
+      <ul class="organizers-list">
+        <li><strong>Luis Barros</strong> — LBV / UPenn Exec Doctorate Program</li>
+        <li><strong>Abigail Barrow</strong> — Cambridge Innovation Partners</li>
+        <li><strong>Christa Bleyleben</strong> — MassGlobal Partners</li>
+        <li><strong>Jose Estabil</strong> — Franklin Waverley</li>
+        <li><strong>Jos Scheffelaar</strong> — Launch in US Alliance</li>
+      </ul>
+    </section>
+
+    <section id="history">
+      <h2>History</h2>
+      <p>
+        kTeams has its roots in the eTeams@MIT program, which was hosted by MIT since 2011. The eTeams@MIT 
+        program established a proven model for helping international teams understand and engage with the 
+        US market through hands-on experience in the Boston innovation ecosystem.
+      </p>
+      <p>
+        kTeams spun off from eTeams@MIT with the same core team, many of the same speakers and mentors, 
+        and the same high-touch "contact-sport" approach to curriculum delivery. The program maintains 
+        the strong connections to MIT and the Greater Boston ecosystem that made eTeams@MIT successful, 
+        while offering flexibility and focus on Kendall Square as a hub for innovation.
+      </p>
+      <p>
+        The program leverages the same deep understanding of US startup culture, investor expectations, 
+        and market dynamics that were developed over years of running eTeams@MIT, ensuring participants 
+        receive proven, effective guidance in their market exploration journey.
+      </p>
+    </section>
+
+    <section id="contact" class="contact-box">
+      <h2>Get in Touch</h2>
+      <p><strong>Address:</strong><br>
+      One Broadway, 14th Floor<br>
+      Cambridge, MA 02142<br>
+      United States</p>
+      
+      <p><strong>Email:</strong><br>
+      <a href="mailto:organizers@kendall-teams.com" style="color: #2c5282;">organizers@kendall-teams.com</a></p>
+      
+      <p style="margin-top: 2rem;">
+        For inquiries about the program, application process, or partnership opportunities, 
+        please contact us at the email address above.
+      </p>
+      
+      <a href="mailto:organizers@kendall-teams.com" class="cta-button" style="display: inline-block; margin-top: 1rem;">Contact Organizers</a>
+    </section>
+  </main>
+
+  <footer style="background: #1f3b5d; color: white; text-align: center; padding: 2rem; margin-top: 4rem;">
+    <p>&copy; 2024 kTeams. All rights reserved.</p>
+    <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">One Broadway, 14th Floor, Cambridge, MA 02142</p>
+  </footer>
+
+  <script>
+    (function() {
+      let lastScrollTop = 0;
+      let ticking = false;
+      const header = document.querySelector('header');
+      const scrollThreshold = 50; // Minimum scroll distance to trigger hide/show
+
+      function updateHeader(scrollTop) {
+        const scrollDelta = scrollTop - lastScrollTop;
+
+        if (scrollTop < scrollThreshold) {
+          // Near top of page - always show
+          header.classList.remove('hidden');
+        } else if (scrollDelta > 5) {
+          // Scrolling down - hide header
+          header.classList.add('hidden');
+        } else if (scrollDelta < -5) {
+          // Scrolling up - show header
+          header.classList.remove('hidden');
+        }
+
+        lastScrollTop = scrollTop;
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            updateHeader(window.pageYOffset || document.documentElement.scrollTop);
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      // Ensure header is visible on initial load
+      header.classList.remove('hidden');
+    })();
+  </script>
+</body>
+</html>
