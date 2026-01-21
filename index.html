@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>US Market Exploration Program for International Scale-ups | kTeams</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: #2c3e50;
+      background-color: #ffffff;
+    }
+    header {
+      background: linear-gradient(135deg, #1f3b5d 0%, #2c5282 100%);
+      color: white;
+      padding: 2rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transform: translateY(0);
+      opacity: 1;
+      transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    }
+    header.hidden {
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+    nav {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    nav a {
+      color: #d3e3ff;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background 0.2s, color 0.2s;
+      font-size: 0.9rem;
+    }
+    nav a:hover {
+      background: rgba(255,255,255,0.2);
+      color: white;
+    }
+    .hero {
+      text-align: center;
+      padding: 3rem 2rem;
+      padding-top: 200px;
+      background: linear-gradient(135deg, #e8f4f8 0%, #f8f9fa 100%);
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      color: #1f3b5d;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+    .cta-button {
+      display: inline-block;
+      margin-top: 2rem;
+      background: #2c5282;
+      color: white;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .cta-button:hover {
+      background: #1f3b5d;
+      transform: translateY(-2px);
+    }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    section {
+      margin-bottom: 4rem;
+      scroll-margin-top: 200px;
+    }
+    h2 {
+      color: #1f3b5d;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid #2c5282;
+    }
+    h3 {
+      color: #2c5282;
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      margin-bottom: 1rem;
+      color: #555;
+    }
+    ul {
+      margin-left: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    li {
+      margin-bottom: 0.75rem;
+      color: #555;
+    }
+    .highlight-box {
+      background: #e8f4f8;
+      border-left: 4px solid #2c5282;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+    .contact-box {
+      background: #f8f9fa;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+    .organizers-list {
+      list-style: none;
+      margin-left: 0;
+    }
+    .organizers-list li {
+      padding: 0.75rem;
+      background: #f8f9fa;
+      margin-bottom: 0.5rem;
+      border-radius: 4px;
+      border-left: 3px solid #2c5282;
+    }
+    .testimonial-card {
+      background: #f8f9fa;
+      border-left: 4px solid #2c5282;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+    .testimonial-text {
+      font-style: italic;
+      color: #555;
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+    .testimonial-attribution {
+      color: #1f3b5d;
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+    }
+    .organizer-bio {
+      background: #f8f9fa;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+      border-left: 3px solid #2c5282;
+      white-space: pre-wrap;
+      font-family: inherit;
+      line-height: 1.6;
+      color: #555;
+    }
+    .article-link {
+      display: block;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      background: #e8f4f8;
+      border-left: 3px solid #2c5282;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #1f3b5d;
+      transition: background 0.2s;
+    }
+    .article-link:hover {
+      background: #d3e3ff;
+    }
+    .article-link strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .article-link span {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav a {
+        width: 100%;
+        text-align: center;
+      }
+      main {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+<h1 style="text-align: center; font-size: 1.8rem; margin-bottom: 0;">kTeams</h1>
+<nav>
+<a href="#hero">Home</a>
+<a href="#what-offers">What kTeams Offers</a>
+<a href="#why">Why kTeams?</a>
+<a href="#not-bootcamp">Not a Boot Camp</a>
+<a href="#testimonials">Testimonials</a>
+<a href="#why-boston">Why Boston</a>
+<a href="#program">kTeams Program</a>
+<a href="#structure">Program Structure</a>
+<a href="#extended">Extended Programs</a>
+<a href="#sample">Sample Program</a>
+<a href="#apply">How to Apply</a>
+<a href="#process">Application Process</a>
+<a href="#profile">Team Profile</a>
+<a href="#organizers">Organizers</a>
+<a href="#history">History</a>
+<a href="#organizations">Organizations</a>
+<a href="#articles">Articles</a>
+<a href="#pitch-video">Pitch Video</a>
+<a href="#contact">Get in Touch</a>
+</nav>
+</header>
+<div class="hero" id="hero">
+<h1>US Market Exploration Program for International Scale-ups</h1>
+<p>A 2-week hands-on program in Boston's innovation ecosystem</p>
+<a class="cta-button" href="#apply">Apply Now</a>
+</div>
+<main>
+<section id="what-offers">
+<h2>What kTeams Offers</h2>
+<p>
+        kTeams is a 2-week hands-on US-market exploration program designed for international scale-ups. 
+        The program welcomes teams from universities, incubators, and economic development organizations. 
+        Individual entrepreneurs may also apply.
+      </p>
+<p>
+        Participants engage directly with the Boston innovation ecosystem through structured activities, 
+        introductions, and immersive experiences designed to accelerate market entry and strategic positioning.
+      </p>
+</section>
+<section id="why">
+<h2>Why kTeams?</h2>
+<div class="highlight-box">
+<h3>Key Benefits</h3>
+<ul>
+<li><strong>Optimize Market Positioning:</strong> Refine your value proposition and market positioning strategies</li>
+<li><strong>Perfect Your Pitch:</strong> Develop and practice investor-ready presentations</li>
+<li><strong>Strategic Introductions:</strong> Connect with investors, partners, and potential customers in the Boston ecosystem</li>
+<li><strong>Ecosystem Access:</strong> Gain direct access to Kendall Square innovation community and CIC facilities</li>
+<li><strong>Network Building:</strong> Build relationships with mentors, speakers, and fellow entrepreneurs</li>
+</ul>
+</div>
+</section>
+<section id="not-bootcamp">
+<h2>kTeams is not a Boot Camp</h2>
+<p>
+        Unlike traditional boot camps, kTeams focuses on high-touch, personalized market exploration rather than 
+        standardized curriculum. The program is designed as a "contact sport" where teams engage directly with 
+        the ecosystem, building real relationships and gaining practical insights tailored to their specific 
+        market entry challenges.
+      </p>
+<p>
+        The curriculum emphasizes hands-on experience, strategic introductions, and personalized mentorship 
+        rather than classroom-based instruction. Each team receives customized guidance based on their industry, 
+        stage, and market goals.
+      </p>
+</section>
+<section id="testimonials">
+<h2>Testimonials</h2>
+<p>Almost 100 emerging companies from Europe and Canada have participated in kTeams and eTeams, its predecessor when it was an MIT program. Here is a selection of their testimonials.</p>
+<p>Additional testimonials are currently being collected.</p>
+<h3>Organizations that send their scale-ups to kTeams</h3>
+<div class="testimonial-card">
+<p class="testimonial-text">"SETsquared is committed to supporting startups accelerate their growth and often the US can be a strategic market for tech businesses. The kTeams programme is brilliant. It helps scale-ups develop their business proposition for the US market and introduce them to key customers and partners giving them an accelerated start to break into the US."</p>
+<p class="testimonial-attribution"><strong>SETsquared, United Kingdom</strong> — <strong>Karen Brooks</strong>, Program Director</p>
+</div>
+<div class="testimonial-card">
+<p class="testimonial-text">"kTeams was the most efficient US program where we have taken our teams. The expertise, range of experience and market knowledge of the organizers was extraordinary, not to mention their invaluable network connections, not only in Boston, but also globally. Besides the very strong training content, they gave the teams a lot of individual attention. And if this wasn't already outstanding, the location (the CIC, Cambridge Innovation Center) was the best choice for venue, where our teams had the opportunity to meet local entrepreneurs &amp; participate in events."</p>
+<p class="testimonial-attribution"><strong>Design Terminal, Hungary</strong> — <strong>Dorottya Gál</strong>, Program Director</p>
+</div>
+<h3>Some companies that participated in kTeams, or its predecessor program</h3>
+<div class="testimonial-card">
+<p class="testimonial-text">"Our 2 weeks in Boston with KTeams really gave us a boost in taking our business to the United States. They gave us many opportunities to get in touch with a diversity of contacts. We received great feedback on our strategies and came home with the feeling we needed to finish our business case as soon as possible. They helped and convinced us to start in the US and showed us many important subjects to think about. KTeams is a very professional and helpful organization to work with"</p>
+<p class="testimonial-attribution"><strong>Jasa, Netherlands</strong> — <strong>Sandra Pannekeet</strong>, Co-Owner/CFO — kTeams Fall 2017</p>
+</div>
+<div class="testimonial-card">
+<p class="testimonial-text">"We are still very excited about the program in Boston: it taught us to think "bigger", to set audacious goals and present ourselves in a much more succinct and attractive way. We will take action to incorporate this in our strategy and presentation."</p>
+<p class="testimonial-attribution"><strong>Sensius, Netherlands</strong> — <strong>Paul van den Biggelaar</strong>, CEO — kTeams Fall 2017</p>
+</div>
+<div class="testimonial-card">
+<p class="testimonial-text">"During two weeks kTeams has facilitated our first steps in the Bostonian market place. This caused a boost for our team that resulted in further focus and incremental drive for growth acceleration. Many thanks for these inspiring weeks."</p>
+<p class="testimonial-attribution"><strong>MgAubel, Netherlands</strong> — <strong>Marc Goedkoop</strong>, Founder — kTeams Fall 2017</p>
+</div>
+<div class="testimonial-card">
+<p class="testimonial-text">"Over the two weeks with kTeams we've sharpened both our business proposition as well as our pitch to VC's. Besides that, we have been introduced to several industry leaders in the Boston area resulting in three concrete sales opportunities. Many thanks for the inspiring and professional setting."</p>
+<p class="testimonial-attribution"><strong>Neurocast, Netherlands</strong> — <strong>Erwin Redeman</strong>, Co-Founder — kTeams Fall 2017</p>
+</div>
+<div class="testimonial-card">
+<p class="testimonial-text">"My time with kTeams in Boston was great to obtain a lot of exposure to the professional Healthcare and VC environment of Boston. The team gave me valuable feedback on our proposition and helped me to get a fresh perspective on strategic next steps required for our company. I went home better informed and ready to start executing those next steps, both in Europe as well as in the US. I am looking forward to seeing them again soon in Boston, as part of those plans."</p>
+<p class="testimonial-attribution"><strong>NewCompliance, Netherlands</strong> — <strong>Menno van Rossum</strong>, US Director — kTeams Fall 2017</p>
+</div>
+<div class="testimonial-card">
+<p class="testimonial-text">"We have been running for over 3 years and over that time, our product has become much more sophisticated. However, the messaging and presentation has become more complex too. The mentors helped me to strip our marketing message back to the essentials, focusing on value and differentiators. We how have messaging which is much clearer, shorter and better, not just for the USA market, but better for use worldwide."</p>
+<p class="testimonial-attribution"><strong>Fresh Relevance, United Kingdom</strong> — <strong>Mike Austin</strong>, CEO — kTeams 2016</p>
+</div>
+<div class="testimonial-card">
+<p class="testimonial-text">"Participating in kTeams made us leap forward with respect to establishing our business in the US market, The guidance and encouragements by the kTeams organizers helped me presenting to American audiences. kTeams experts helped us strengthen our market strategy and pitch. To top it all off, upon valuable personal introductions by kTeams we had several meetings with key players in our target industries while we were in Boston."</p>
+<p class="testimonial-attribution"><strong>Leopoly, Hungary</strong> — <strong>Zoltan Karpati</strong>, CEO — kTeams 2016</p>
+</div>
+<div class="testimonial-card">
+<p class="testimonial-text">"Figata Pazzesca" – it has to be lived</p>
+<p class="testimonial-attribution"><strong>MobiRev, Italy</strong> — Co-Founder — eTeams 2014</p>
+</div>
+<div class="testimonial-card">
+<p class="testimonial-text">"The program brought us many practical insights, we now use in our day-to-day operations."</p>
+<p class="testimonial-attribution"><strong>O2MC, Netherlands</strong> — <strong>Stefan de Kraker</strong>, COO — eTeams 2014</p>
+</div>
+<div class="testimonial-card">
+<p class="testimonial-text">"One week in Kendall Square is like 3 weeks in Silicon Valley"</p>
+<p class="testimonial-attribution"><strong>Sensefinity, Portugal</strong> — Co-Founder — eTeams 2014</p>
+</div>
+<div class="testimonial-card">
+<p class="testimonial-text">"In two weeks we achieved more than what we could achieve in Switzerland in six months …."</p>
+<p class="testimonial-attribution"><strong>Powzy, Switzerland</strong> — Co-Founder — eTeams 2014</p>
+</div>
+<div class="testimonial-card">
+<p class="testimonial-text">"Participating in the eTeams program had a significant impact on the success of ONTOFORCE today. Not only did we get access to an impressive network and learned a lot about how to do business in the US, it also helped us assess the status of our company in multiple dimensions, ranging from marketing, finance, pricing, technology readiness to Human Resources. We, as senior management learned a lot about how to successfully bring our company to the next level. We set the pricing and business plans for the next stage of our company during the sessions in Boston."</p>
+<p class="testimonial-attribution"><strong>ONTOFORCE, Belgium</strong> — <strong>Hans Constandt</strong>, CEO — eTeams 2013</p>
+</div>
+</section>
+<section id="why-boston">
+<h2>Why Boston</h2>
+<p>
+        Boston, particularly Kendall Square, represents one of the world's most concentrated innovation ecosystems. 
+        The region offers unparalleled access to:
+      </p>
+<ul>
+<li>Leading research universities (MIT, Harvard, and others)</li>
+<li>World-class hospitals and research institutions</li>
+<li>Venture capital firms and angel investors</li>
+<li>Life sciences, biotech, and technology clusters</li>
+<li>Corporate innovation labs and strategic partners</li>
+<li>A supportive startup community and accelerator programs</li>
+</ul>
+<p>
+        kTeams leverages this ecosystem through strategic partnerships, including cooperation with CIC 
+        (Cambridge Innovation Center), providing participants with workspace, meeting facilities, and 
+        direct access to the Kendall Square innovation community during their stay.
+      </p>
+</section>
+<section id="program">
+<h2>kTeams Program</h2>
+<p>
+        The kTeams program is an intensive 2-week experience designed to help international scale-ups 
+        understand, navigate, and engage with the US market. The program combines structured learning 
+        sessions, networking events, strategic introductions, and hands-on market exploration activities.
+      </p>
+<p>
+        Throughout the program, teams work directly with experienced mentors and advisors to refine their 
+        market strategy, develop investor materials, and build relationships with key stakeholders in their 
+        target market.
+      </p>
+</section>
+<section id="structure">
+<h2>kTeams Program Structure</h2>
+<p>The 2-week program is structured around several key components:</p>
+<ul>
+<li><strong>Orientation &amp; Ecosystem Overview:</strong> Introduction to Boston innovation ecosystem and program expectations</li>
+<li><strong>Market Positioning Workshops:</strong> Sessions focused on refining value proposition and market strategy</li>
+<li><strong>Pitch Development:</strong> Guided development and practice of investor presentations</li>
+<li><strong>Strategic Introductions:</strong> Curated meetings with investors, partners, and potential customers</li>
+<li><strong>Site Visits:</strong> Tours of relevant companies, labs, and institutions</li>
+<li><strong>Networking Events:</strong> Opportunities to connect with entrepreneurs, mentors, and ecosystem players</li>
+<li><strong>Individual Consultations:</strong> One-on-one sessions with mentors and advisors</li>
+<li><strong>Program Wrap-up:</strong> Final presentations and action plan development</li>
+</ul>
+</section>
+<section id="extended">
+<h2>kTeams Extended Programs</h2>
+<p>
+        In addition to the standard 2-week program, kTeams may offer extended program options tailored 
+        to specific needs of participants or partner organizations. These extended programs provide 
+        additional time for deeper market exploration, relationship building, and strategic development.
+      </p>
+<p>
+        For information about extended program options and availability, please contact the organizers.
+      </p>
+</section>
+<section id="sample">
+<h2>Sample kTeams Program</h2>
+<p>A typical kTeams program schedule includes:</p>
+<div class="highlight-box">
+<h3>Week 1</h3>
+<ul>
+<li>Program orientation and ecosystem overview</li>
+<li>Market positioning and value proposition workshops</li>
+<li>Initial investor and partner introductions</li>
+<li>Site visits to relevant companies and institutions</li>
+<li>Networking events and community engagement</li>
+</ul>
+<h3>Week 2</h3>
+<ul>
+<li>Pitch development and refinement sessions</li>
+<li>Strategic investor and customer meetings</li>
+<li>Continued ecosystem exploration and networking</li>
+<li>Individual mentor consultations</li>
+<li>Final presentations and action plan development</li>
+</ul>
+</div>
+<p>
+        Specific schedules are customized based on participant needs, industry focus, and program timing.
+      </p>
+</section>
+<section id="apply">
+<h2>How to Apply</h2>
+<p>
+        kTeams welcomes applications from international scale-ups, teams from universities and incubators, 
+        and economic development organizations. Individual entrepreneurs may also apply.
+      </p>
+<p>
+        To begin the application process, please send an email inquiry to the organizers. The program 
+        operates on a rolling admission basis, and teams will receive confirmation or rejection within 
+        one week after submitting required materials.
+      </p>
+<div class="highlight-box">
+<p><strong>Initial Contact:</strong> Email organizers@kendall-teams.com</p>
+<p><strong>Application Review:</strong> Confirmation or rejection within one week after materials received</p>
+<p><strong>Remote Preparation:</strong> Accepted teams participate in a remote preparation program</p>
+</div>
+</section>
+<section id="process">
+<h2>Application Process</h2>
+<ol style="margin-left: 2rem;">
+<li><strong>Initial Inquiry:</strong> Send email to organizers@kendall-teams.com expressing interest</li>
+<li><strong>Application Materials:</strong> Submit required application materials (registration form and other documents as specified)</li>
+<li><strong>Review Period:</strong> Application materials are reviewed by the organizers</li>
+<li><strong>Notification:</strong> Receive confirmation or rejection within one week after materials are received</li>
+<li><strong>Remote Preparation:</strong> Accepted teams participate in remote preparation program before the on-site experience</li>
+<li><strong>Registration &amp; Fees:</strong> Complete registration form and payment of applicable fees</li>
+<li><strong>Program Participation:</strong> Engage in the 2-week on-site program in Boston</li>
+</ol>
+<p>
+<strong>Note:</strong> Sponsors are encouraged. Teams sponsored by universities, incubators, or 
+        economic development organizations may have different application processes or fee structures.
+      </p>
+</section>
+<section id="profile">
+<h2>Typical Team Profile</h2>
+<p>kTeams is designed for teams that meet the following criteria:</p>
+<ul>
+<li><strong>Company Stage:</strong> Incorporated for 4 years or less</li>
+<li><strong>Funding:</strong> Have received $1 million USD or less in institutional funding</li>
+<li><strong>Industry Focus:</strong> Preferably life sciences, though other high-technology sectors are welcome</li>
+<li><strong>Team Initiative:</strong> Demonstrated initiative and commitment to market expansion</li>
+<li><strong>Full Participation:</strong> Commitment to full participation including preparation activities</li>
+<li><strong>Additional Assets:</strong> Having revenues, awards, or other validation is helpful but not required</li>
+</ul>
+<p>
+        Teams should be prepared for intensive engagement, active networking, and dedicated work on 
+        market positioning and strategic development throughout the program.
+      </p>
+</section>
+<section id="organizers">
+<h2>Organizers</h2>
+<p>The kTeams program is organized by:</p>
+<ul class="organizers-list">
+<li><strong>Luis Barros</strong> — LBV / UPenn Exec Doctorate Program</li>
+<li><strong>Abigail Barrow</strong> — Cambridge Innovation Partners</li>
+<li><strong>Christa Bleyleben</strong> — MassGlobal Partners</li>
+<li><strong>Jose Estabil</strong> — Franklin Waverley</li>
+<li><strong>Jos Scheffelaar</strong> — Launch in US Alliance</li>
+</ul>
+<pre class="organizer-bio" data-name="Luis Barros">Luis Barros is the Managing Partner of Leading Business Ventures (“LBV”) and is an Executive Doctorate candidate at University of Pennsylvania. As a practitioner|scholar his work focuses on working with organizational leaders in applying innovation, venture capital, and corporate development as a way to impact on economic development, ecosystem effectiveness, and cluster proliferation.
+
+Through its affiliated entities and partnerships, current and past affiliations and collaborations include: concurrent role as Venture Partner of Portugal Ventures’ $800M venture capital fund and appointment as Co-Director of Innovation at MIT’s Portugal Program (MPP), and their respective Acceleration Centers; Advisor to Innovation and Financing entities in Latin America and Africa, and Asia, including H3 Biomedicine (Japan’s Eisai Co. Ltd); and to USA’s SBIR Commercialization Acceleration Programs (CAP). LBV advises co’s located in Finland, Belgium, and Israel.
+
+Prior to LBV, Luis served as the Senior VP of Investments at the Governor of Massachusetts’ $1B Life Sciences Center and Principal at Lilly Ventures, on the team that architected these initiatives, which respectively included funds with exits, equity or acquisition proceeds; and co-financing and syndication. Luis’ prior positions include IC Sciences Corp, Securities and Exchange Commission (SEC) and executive roles in startups that were respectively acquired by TIBCO (NASDAQ:TIBX) and Microsoft (NYSE: MSFT).
+
+Luis has degrees from MIT Sloan (MBA) and UMASS Amherst (BBA), and is a graduate Harvard Business School’s Executive Program on Board Leadership.</pre>
+<pre class="organizer-bio" data-name="Abigail Barrow">Dr. Abigail Barrow is the Interim Executive Director, Office of Technology Commercialization and Ventures (OTCV). She joined the UMass President’s Office in 2004 as the Founding Director of the Massachusetts Technology Transfer Center (MTTC) which is housed in OTCV. At OTCV she supports the campus technology transfer programs as well as assisting with start-up formation and other systemwide entrepreneurship activities at UMass. She is also responsible for the overall management of the MTTC and the development of its programs. Prior to joining UMass, Dr. Barrow served as managing director of William J. von Liebig Center at the University of California San Diego (UCSD). The von Liebig Center was created in 2001 to support the commercialization of research being performed in the UCSD Jacobs School of Engineering.
+
+Dr. Barrow worked in a variety of roles at UCSD CONNECT from 1990 to 2001. At CONNECT, she developed and expanded many of its programs to support early-stage company formation and technology commercialization. The CONNECT program is internationally recognized and has been successfully replicated in many other regions around the world.
+
+Dr. Barrow is on the board and is Chair of VentureWell (formerly the National Collegiate Inventors and Innovators Alliance). Dr. Barrow received her Ph.D. from the Science Studies Unit and a B.Sc. in Mechanical Engineering from the University of Edinburgh.
+
+CIC, 14th Floor
+One Broadway
+Cambridge, MA 02142
+United States</pre>
+<pre class="organizer-bio" data-name="Christa Bleyleben">Christa Bleyleben is the Founder and Managing Partner of MassGlobal Partners LLC, an international strategy and tactical advisory firm, helping innovative companies to internationalize their businesses. Christa brings more than 25 years of experience in building global relationships – working in executive management roles in both the public as well as private sector. In her prior career, Christa was Executive Director of the Massachusetts Office of International Trade and Investment (MOITI), and President of the Massachusetts International Trade Council (MITCI). Previously, Christa was a Managing Director at Banc of America Securities LLC, with overall responsibility to manage the bank’s relationships with the world’s top 250 financial institutions.
+
+Christa serves on the management team of BostonLanding.US and is an advisor to ‘Global Emerging LLC’, which offers market entry and finance platforms for American and European companies wishing to enter the Greater China markets. She also is a coach and mentor to several start-up companies and closely collaborated with MIT’s entrepreneurship training ‘eTeams ‘ program, which preceded the current ‘kTeams’ program. Christa holds an MBA from the Vienna University of Economics &amp; Business and attended executive programs at Kellogg School of Management (Chicago) &amp; Tuck School of Business at Dartmouth (N.H.).</pre>
+<pre class="organizer-bio" data-name="José Estabil">José Estabil brings 20+ years of experience in translating technology into high growth businesses with cumulative $1B market impact. He is currently developing a company to catalyze the development of new medicines using data science.
+
+His portfolio of international entrepreneurial activities includes projects in Cambridge (ITH Fund), Cuba (Miami Dade College), Portugal (MIT), Italy (TT Ventures), Japan (Schlumberger), and Russia: José was part of the MIT team that established the Skolkovo Institute of Science and Technology -‐a graduate school the size of Cal Tech-‐in Moscow, Russia, where he became Dean of International Research. José has been an active contributor to the MIT Deshpande Center for Technological Innovation since 2007 and is a mentor at the Harvard Business School’s capstone entrepreneurship course (Field X).
+
+José volunteers extensively for organizations that create leadership opportunities for underrepresented minorities at the high school, college, post-graduate levels, and industry, including, Brown University, Vertex Corporation External Diversity Advisory Council, Boston-based Conexión, and is a founding member of Miami Dade College’s Idea Center Board of Advisors -Miami Dade College is one of the largest educational institutions in the US, and serves the largest underrepresented minority population in higher education.
+
+José earned his Sc. B. and Sc. M. in Physics from Brown University, where he is a Trustee of the Brown Corporation Governance Committee.</pre>
+<pre class="organizer-bio" data-name="Jos Scheffelaar">Jos Scheffelaar is a European entrepreneur who moved to Boston more than 20 years ago after working in High Tech in several countries in Europe and in Asia. Building on his international skills and experience, and his extensive personal network, he co-founded Launch in US Alliance, a company helping European entrepreneurs launch their business in the U.S.
+
+Jos is frequently invited by international organizations as guest lecturer to give his unique European perspective on American entrepreneurship and U.S. market entry for international companies. He is active in Boston’s entrepreneurial community, and acts as a judge and mentor in venture competitions. He is involved in the national programs of several European nations promoting entrepreneurship, and has been invited times to moderate panels about international collaboration at major Life Sciences conferences such as BIO 2012 and AdvaMed 2012. He holds a Masters Degree in Electrical Engineering from the Technical University Delft in the Netherlands.</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+<section id="history">
+<h2>History</h2>
+<p>
+        kTeams has its roots in the eTeams@MIT program, which was hosted by MIT since 2011. The eTeams@MIT 
+        program established a proven model for helping international teams understand and engage with the 
+        US market through hands-on experience in the Boston innovation ecosystem.
+      </p>
+<p>
+        kTeams spun off from eTeams@MIT with the same core team, many of the same speakers and mentors, 
+        and the same high-touch "contact-sport" approach to curriculum delivery. The program maintains 
+        the strong connections to MIT and the Greater Boston ecosystem that made eTeams@MIT successful, 
+        while offering flexibility and focus on Kendall Square as a hub for innovation.
+      </p>
+<p>
+        The program leverages the same deep understanding of US startup culture, investor expectations, 
+        and market dynamics that were developed over years of running eTeams@MIT, ensuring participants 
+        receive proven, effective guidance in their market exploration journey.
+      </p>
+</section>
+<section id="organizations">
+<h2>Organizations That Send Scale-Ups</h2>
+<ul>
+<li><strong>SETsquared</strong> (United Kingdom)</li>
+<li><strong>Design Terminal</strong> (Hungary)</li>
+</ul>
+</section>
+<section id="articles">
+<h2>Articles</h2>
+<ul>
+<li>Mike Austin, Blog (SETsquared, 2016)</li>
+<li>MIT International Innovation Symposium showcases impressive European startups (BetaBoston, 2014)</li>
+<li>MIT eTeams shows effective acceleration for international startups in Boston (Beta Boston, 2014)</li>
+<li>Two Weeks at MIT: Big Ideas, Big Breakfasts and Entrepreneurship On The World Stage (Set Squared, 2014)</li>
+<li>The MIT Experience: Two weeks of American-style entrepreneurship (Set Squared, 2013)</li>
+</ul>
+</section>
+<section id="pitch-video">
+<h2>Pitch Event Video</h2>
+<p>
+<a href="https://web.archive.org/web/20220126141918/http://kendall-teams.com/wp-content/uploads/2017/11/kTeams%206Nov2017.mp4" rel="noopener" style="color: #2c5282; text-decoration: underline;" target="_blank">kTeams Pitch Event Video</a>
+</p>
+</section>
+<section class="contact-box" id="contact">
+<h2>Get in Touch</h2>
+<p><strong>Address:</strong><br/>
+      One Broadway, 14th Floor<br/>
+      Cambridge, MA 02142<br/>
+      United States</p>
+<p><strong>Email:</strong><br/>
+<a href="mailto:organizers@kendall-teams.com" style="color: #2c5282;">organizers@kendall-teams.com</a></p>
+<p style="margin-top: 2rem;">
+        For inquiries about the program, application process, or partnership opportunities, 
+        please contact us at the email address above.
+      </p>
+<a class="cta-button" href="mailto:organizers@kendall-teams.com" style="display: inline-block; margin-top: 1rem;">Contact Organizers</a>
+</section>
+</main>
+<footer style="background: #1f3b5d; color: white; text-align: center; padding: 2rem; margin-top: 4rem;">
+<p>© 2024 kTeams. All rights reserved.</p>
+<p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">One Broadway, 14th Floor, Cambridge, MA 02142</p>
+<p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; font-style: italic;">This page is reconstructed from provided archival source text. Some sections may be incomplete if source excerpts did not include full text.</p>
+</footer>
+<script>
+    (function() {
+      let lastScrollTop = 0;
+      let ticking = false;
+      const header = document.querySelector('header');
+      const scrollThreshold = 50; // Minimum scroll distance to trigger hide/show
+
+      function updateHeader(scrollTop) {
+        const scrollDelta = scrollTop - lastScrollTop;
+
+        if (scrollTop < scrollThreshold) {
+          // Near top of page - always show
+          header.classList.remove('hidden');
+        } else if (scrollDelta > 5) {
+          // Scrolling down - hide header
+          header.classList.add('hidden');
+        } else if (scrollDelta < -5) {
+          // Scrolling up - show header
+          header.classList.remove('hidden');
+        }
+
+        lastScrollTop = scrollTop;
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            updateHeader(window.pageYOffset || document.documentElement.scrollTop);
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      // Ensure header is visible on initial load
+      header.classList.remove('hidden');
+    })();
+  </script>
+</body>
+</html>
